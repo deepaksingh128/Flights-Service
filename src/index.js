@@ -14,7 +14,6 @@ app.use('/api', apiRoutes);
 
 
 app.post('/test', function(req, res) {
-    
     res.json({
         msg: req.body.modelNumber,
         msg2: req.body.capacity
