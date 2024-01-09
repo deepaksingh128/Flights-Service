@@ -39,6 +39,10 @@ async function getAirplanes(req, res) {
     }
 }
 
+async function getAirplane(id) {
+    
+}
+
 module.exports = {
     createAirplane,
     getAirplanes
