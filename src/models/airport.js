@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const City  = require('./city');    
 module.exports = (sequelize, DataTypes) => {
   class Airport extends Model {
     /**
@@ -11,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.City, {
+        foreignKey: 'citiId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
     }
   }
   Airport.init({
