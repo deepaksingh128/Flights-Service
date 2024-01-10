@@ -15,6 +15,19 @@ function validateCreateRequest(req, res, next) {
     next();
 }
 
+function validateUpdateRequest(req, res, next) {
+    if(!req.params.id) {
+        ErrorResponse.message = 'Something went wrong while updating airplane';
+        ErrorResponse.error = new AppError(['Id is not found in the incoming request in correct form.'], StatusCodes.BAD_REQUEST);
+        
+        return res
+                .status(StatusCodes.BAD_REQUEST)
+                .json(ErrorResponse);
+    }
+    next();
+}
+
 module.exports = {
-    validateCreateRequest
+    validateCreateRequest,
+    validateUpdateRequest
 }
