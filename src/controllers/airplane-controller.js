@@ -96,9 +96,10 @@ async function updateAirplane(req, res) {
                 .status(StatusCodes.OK)
                 .json(SuccessResponse);
     } catch (error) {
+        // console.log("custom" + error);
         ErrorResponse.error = error;
         return res
-                .status(error.statusCode)
+                .status(StatusCodes.BAD_REQUEST)
                 .json(ErrorResponse);
     }
 }

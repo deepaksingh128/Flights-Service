@@ -64,7 +64,7 @@ async function updateAirplane(id, data) {
             return response;
         }
     } catch (error) {
-        return error;
+        throw new AppError('Cannot fetch data of the airplane');
     }
 }
 
