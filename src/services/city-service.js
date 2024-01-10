@@ -34,7 +34,21 @@ async function destroyCity(id) {
     }
 }
 
+async function updateCity(id, data) {
+    try {
+        const response = await cityRepository.update(id, data);
+        if(response && response[0] === 0) {
+            throw new AppError('The city you requested to update does not exist', StatusCodes.BAD_REQUEST);
+        } else{
+            return response;
+        }
+    } catch (error) {
+        throw new AppError('Cannot fetch data of the city');
+    }
+}
+
 module.exports = {
     createCity,
-    destroyCity
+    destroyCity,
+    updateCity
 }
