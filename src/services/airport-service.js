@@ -9,7 +9,7 @@ async function createAirport(data) {
         const airport = await airportRepository.create(data);
         return airport;
     } catch(error) {
-        console.log(error); /// to debug and handle errors properly
+        // console.log(error); /// to debug and handle errors properly
         if(error.name == 'SequelizeValidationError') {
             let explaination = [];
             error.errors.forEach((err) => {
@@ -33,7 +33,7 @@ async function getAirports() {
 
 async function getAirport(id) {
     try {
-        const airport = await airplaneRepository.get(id);
+        const airport = await airportRepository.get(id);
         return airport;
     } catch (error) {
         if(error.statusCode == StatusCodes.NOT_FOUND) {
