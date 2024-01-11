@@ -1,5 +1,5 @@
 const express = require('express');
-
+const { Airport, City } = require('.//models');
 // const { ServerConfig, Logger } = require('./config');   // NOTE :- Without destructuring , error
 const { ServerConfig } = require('./config');
 
@@ -20,7 +20,20 @@ app.post('/test', function(req, res) {
     });
 })
 
-app.listen(ServerConfig.PORT, () => {
+app.listen(ServerConfig.PORT, async () => {
     console.log(`Successfully started the server with PORT: ${ServerConfig.PORT}`);
     // Logger.info("Successfully started the server");
+
+
+    // NOTE:_ BAD code alert
+    // const { Airport, City } = require('./models');
+    // const city = await City.findByPk(1);
+    // console.log(city);
+    // const city = await City.findByPk(3);
+    // await city.createAirport({name: 'Indore airport', code: 'IND'});
+    // await City.destroy({
+    //     where: {
+    //         id : 3
+    //     }
+    // })
 });

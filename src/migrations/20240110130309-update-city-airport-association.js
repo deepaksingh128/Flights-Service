@@ -12,7 +12,7 @@ module.exports = {
         field: 'id'
       },
       onUpdate: 'CASCADE',
-      delete: 'CASCADE',
+      onDelete: 'CASCADE',
     })
   },
 
