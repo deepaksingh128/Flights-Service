@@ -8,9 +8,10 @@ class FlightRepository extends CrudRepository {
 
     // we can write raw/custom queries:-
 
-    async getAllFlights(filter) {
+    async getAllFlights(filter, sort) {
         const response = await Flight.findAll({
-            where: filter
+            where: filter,
+            order: sort,
         });
         return response;
     }
