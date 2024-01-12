@@ -61,7 +61,7 @@ async function getAllFlights(query) {
     }
 
     try {
-        const flights = await flightRepository.getAllFlights(customFilter);
+        const flights = await flightRepository.getAllFlights(customFilter, sortFilter);
         return flights;
     } catch (error) {
         
